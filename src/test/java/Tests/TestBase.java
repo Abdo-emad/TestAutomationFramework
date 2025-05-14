@@ -1,12 +1,16 @@
 package Tests;
 
+import Driver.DriverManager;
 import Utilities.Helper;
 import Utilities.Helper1;
+import Utils.AllureResultsCleaner;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -19,19 +23,24 @@ import java.time.Duration;
 
 public class TestBase {
 
-   public WebDriver driver;
+   public static WebDriver driver;
     @BeforeSuite
    @Parameters({"browser"})
-    public void SetUp(@Optional("chrome") String browserName){
+    public void SetUp(@Optional("chrome") String browserName) throws InterruptedException {
+        AllureResultsCleaner.deleteAllureResults("test-output/allure-results");
+      // WebDriver driver = DriverManager.CreateInstance("chrome");
         if (browserName.equalsIgnoreCase("chrome")){
-            driver= new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.setPageLoadStrategy(PageLoadStrategy.NORMAL); //Instead of implicit wait
+            driver= new ChromeDriver(options);
         }else if (browserName.equalsIgnoreCase("firefox")){
             driver= new FirefoxDriver();
         }else {
             driver= new InternetExplorerDriver();
         }
-        driver.manage().window().maximize();
+      driver.manage().window().maximize();
         driver.get("https://demo.nopcommerce.com/");
+        Thread.sleep(50000);
 
     }
     @AfterMethod

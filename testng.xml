@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Testing Google Apps">
-    <parameter name="browser" value="chrome"></parameter>
-    <test name="Regression" preserve-order="false">
+
+<suite name="Testing Google Apps" parallel="tests" thread-count="5">
+
+    <listeners>
+        <listener class-name="Tests.Listeners"/>
+    </listeners>
+    <parameter name="browser" value="chrome"/>
+    <test name="Regression" preserve-order="false" parallel="classes" thread-count="3">
+
         <classes>
             <class name="Tests.RegistrationTest"/>
             <class name="Tests.MyAccountTest"/>
             <class name="Tests.SearchTest"/>
             <class name="Tests.HoverTest"/>
+
+
 
         </classes>
     </test> <!-- Test -->

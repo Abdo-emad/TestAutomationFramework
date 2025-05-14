@@ -18,6 +18,7 @@ public static Object[][] RegistrationData(){
     return new Object[][]{
             {"Ab" , "D" , "adr7123@gmail.com" , "P@ssw0rd"},
             {"Bc" , "D" , "bd88123@gmail.com" , "P@ssw0rd"}
+
     };
 }
 

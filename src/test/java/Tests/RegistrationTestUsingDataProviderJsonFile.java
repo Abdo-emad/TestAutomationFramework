@@ -36,7 +36,7 @@ public class RegistrationTestUsingDataProviderJsonFile extends TestBase{
 
     public void UserCanRegister() throws IOException, ParseException {
 
-        String path = System.getProperty("user.dir"+"src/test/java/Data/UserData.json");
+        String path = System.getProperty("user.dir")+"src/test/java/Data/UserData.json";
         File file = new File(path);
         JSONParser jsonParser = new JSONParser();
         JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader(file));

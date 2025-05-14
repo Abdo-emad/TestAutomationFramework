@@ -7,7 +7,7 @@ import org.openqa.selenium.interactions.Actions;
 
 
 public class PageBase {
-    protected WebDriver driver;
+    protected static WebDriver driver;
    public JavascriptExecutor javascriptExecutor; //Used to Scroll
    public Actions actions; //Used to hover on element then select element
     public PageBase(WebDriver driver){

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Testng_xml_demo  Class">
+    <parameter name="browser" value="chrome"/>
+    <test name="Testng_xml_demo " preserve-order="false">
+        <classes>
+            <class name="Tests.Testng_xml_demo">
+                <methods>
+                       <!-- .* : means that if there are multiple class ends with same name so put .* without writing whole name of class -->
+                       <exclude name="Mobile.*"/>
+                </methods>
+           </class>
+        </classes>
+    </test> <!-- Test -->
+
+    <test name="Testng_xml_demo " preserve-order="false">
+     <packages>
+         <package name="Tests"/>   <!-- all classes under this package name will be executed -->
+     </packages>
+    </test> <!-- Test -->
+
+
+
+    <test name="Testng_xml_demo " preserve-order="false">
+        <!-- group some test cases in different classes to run them only by using "group" tage -->
+        <groups>
+            <run>
+                <include name="Regression"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="Tests.Testng_xml_demo"/>
+            <class name="Tests.Testng_xml_demo"/>
+            <class name="Tests.Testng_xml_demo"/>
+            <class name="Tests.Testng_xml_demo"/>
+
+        </classes>
+    </test> <!-- Test -->
+</suite> <!-- Suite -->

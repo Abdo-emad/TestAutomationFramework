@@ -1,10 +1,12 @@
 package Tests;
 
+import Data.ReadFromExcelFile;
 import Pages.AssertionMessages;
 import Pages.HomePage;
 import Pages.RegistrationPageUsingDataProvider;
-import org.apache.poi.xssf.eventusermodel.XSSFReader;
+
 import org.openqa.selenium.By;
+
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -23,6 +25,7 @@ public static Object[][] RegistrationData() {
 ExcelReader excelReader = new ExcelReader();
     return excelReader.FileReader;
 }*/
+
 
     @Test(priority = 1,alwaysRun = true , dataProvider = "DataDrivenTest")
     public void UserCanRegister(String f_name , String L_name , String email , String pass){

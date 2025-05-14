@@ -1,5 +1,6 @@
 package Data;
 
+import org.json.JSONTokener;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -24,6 +25,18 @@ public class ReadFromJsonFile {
             lastName = (String) jsonObject.get("lastName");
             email= (String) jsonObject.get("email");
             password= (String) jsonObject.get("password");
+
         }
+
+
+
     }
+//    public JSONObject ReadFromJson_NewWay() throws FileNotFoundException {
+//        FileReader reader = new FileReader("data.json"); // JSON file path
+//        JSONTokener token = new JSONTokener(reader);
+//        JSONObject jsonObject = new JSONObject(token);
+//        return jsonObject;
+//
+//
+//    }
 }
